@@ -9,12 +9,18 @@ public class Main {
         /* PRINTING TO THE CONSOLE */
 
         // TODO: Use System.out to print to the console
+        System.out.println("Let's start learning Java!!");
 
 
         /* DECLARING AND INITIALIZING VARIABLES */
-
         // TODO: Declare and initialize several variables and print them to the console
 
+        String newFaveGame = "Spider-Man 2";
+        String faveVillain = "Venom";
+        String faveHero = "Peter Parker";
+        String gamePlayTime = "20 hours.";
+
+        System.out.println("My new favourite game is " + newFaveGame + ", main boss in the game is " + faveVillain + ". My favourite sup in the game is " + faveHero + " and the gameplay for" + newFaveGame + " is " +gamePlayTime  );
 
         /* WRITING METHODS */
 
