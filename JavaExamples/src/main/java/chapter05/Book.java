@@ -6,9 +6,11 @@ public class Book {
 
     // TODO: Declare a class-level int field that will hold the next available number for book IDs
     // Initialize it to 1
+    private static int nextIdNum = 1;
 
     // TODO: Declare a String field for each unique bookId, but do not initialize it
     // Make sure each book's ID cannot be changed after it is set in the constructor
+    private final String bookId;
 
     private String title;
     private String author;
@@ -23,6 +25,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.numPages = numPages;
+        bookId = generateBookId();
     }
 
     public Book(String title, String author) {
@@ -35,6 +38,14 @@ public class Book {
     // TODO: Add a getter for the static field nextIdNum that can be called on the class
     // Use the IntelliJ generator and notice it makes it a static method automatically
     // Then customize to make it a meaningful sentence and change the return type to String
+
+    public static String getNextIdNum() {
+        return "\nThe next available number for a book ID will be " + nextIdNum;
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
 
 
     // TODO: Add getter for bookId (but no setter since it is final)
@@ -71,6 +82,11 @@ public class Book {
     // TODO: Write a custom toString() method that nicely formats the book data
     // Use the @Override annotation
 
+    @Override
+    public String toString() {
+        return "\n" + getTitleAndAuthor() + "\n" + numPages + "\nID: " + bookId;
+    }
+
 
     // INSTANCE METHODS
 
@@ -80,6 +96,11 @@ public class Book {
     // All letters should be capitalized
     // Increment the next ID number for the class to use next time a new Book object is instantiated
 
+    private String generateBookId() {
+        String id = Utils.getInitials(author) + "-" + title.substring(0,3).toUpperCase() + "-" + nextIdNum;
+        nextIdNum++;
+        return id;
+    }
 
     String getTitleAndAuthor() {
         return title + " by " + author;
